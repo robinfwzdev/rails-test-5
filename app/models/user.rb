@@ -1,3 +1,3 @@
-class Staff < ActiveRecord::Base
+class User < ActiveRecord::Base
   validates :name,   presence: true
 end
