@@ -26,7 +26,7 @@ describe Student do
     let!(:schools_student_alex) { SchoolsUser.create(school_id: school.id, student_id: alex.id) }
 
     it 'get student schoolmates' do
-      john.schools.last.students.should include alex
+      john.schoolmates.should include alex
     end
   end
 end
