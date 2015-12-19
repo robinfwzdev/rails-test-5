@@ -1,5 +1,7 @@
 class OfficeWorker < User
-  before_validation :age_greater_than_or_equals_20
+  validates_numericality_of :years_of_exp, greater_than_or_equal_to: 0
+
+  validate :age_greater_than_or_equals_20
 
   def age_greater_than_or_equals_20
     return false if dob.nil?
