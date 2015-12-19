@@ -17,4 +17,16 @@ describe Student do
       student.age.should  == Student.last.age
     end
   end
+
+  describe 'schoolmates' do
+    let!(:john)   { create(:student, dob: '1980-12-30') }    
+    let!(:alex)   { create(:student, dob: '1988-12-30') }
+    let!(:school) { create(:school) }    
+    let!(:schools_student_john) { SchoolsUser.create(school_id: school.id, student_id: john.id) }
+    let!(:schools_student_alex) { SchoolsUser.create(school_id: school.id, student_id: alex.id) }
+
+    it 'get student schoolmates' do
+      john.schools.last.students.should include alex
+    end
+  end
 end
