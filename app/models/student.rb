@@ -18,7 +18,7 @@ class Student < User
 
   def schoolmates
     school_ids   = self.schools.pluck(:id)
-    sstudent_ids = SchoolsUser.where(school_id: school_ids).pluck(:student_id)
-    Student.find(sstudent_ids)
+    student_ids  = SchoolsUser.where(school_id: school_ids).pluck(:student_id)
+    Student.find(student_ids)
   end
 end
