@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151219040039) do
+ActiveRecord::Schema.define(version: 20151219045320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,8 +31,9 @@ ActiveRecord::Schema.define(version: 20151219040039) do
   add_index "schools_students", ["student_id"], name: "index_schools_students_on_student_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.date   "dob"
+    t.string  "name"
+    t.date    "dob"
+    t.integer "years_of_exp"
   end
 
 end
