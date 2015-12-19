@@ -9,4 +9,12 @@ describe Student do
        expect(student.errors.messages).to include(dob: ["must be older than 18"])
     end
   end
+
+  describe 'age' do
+    let!(:student) { create(:student, dob: '1980-12-30') }
+
+    it 'get age of student' do
+      student.age.should  == Student.last.age
+    end
+  end
 end
